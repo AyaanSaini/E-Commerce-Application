@@ -78,7 +78,7 @@
             	}
             	else if(userRole.equalsIgnoreCase("admin")){
             		%>
-            		<li><a href="/Git_Punjabi_Fashion/jsp/admin/home.jsp"><span class="glyphicon glyphicon-user" ></span>&nbsp;<%= user %></a></li>
+            		<li><a href="/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp"><span class="glyphicon glyphicon-user" ></span>&nbsp;<%= user %></a></li>
             		<%
             	}
             %>

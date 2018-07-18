@@ -60,9 +60,17 @@
 	
 }
 .sizes-div{
-	display: none;
 	
+	display: none;
+		
+}
+.sizes-row{
+	border: 1px solid grey;
+	padding: auto;
 }
 .color-div{
 	display: block;
+}
+.sizes{
+	width: 100%;
 }

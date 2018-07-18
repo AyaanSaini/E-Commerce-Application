@@ -11,7 +11,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
-
+<script type="text/javascript" src="../../javascripts/editProduct.js"></script>
 
  <link rel="stylesheet" href="../../index.css">
  <link rel="stylesheet" href="../../css/admin/home.css">
@@ -24,7 +24,6 @@
  
 </head>
 <body >
-
 <%@ include  file='/header.jsp' %>
 
 	<div class="container">		
@@ -45,7 +44,7 @@
 <div class="edit-product">
 	<div class='product-edit-header'>
         <div class='header-name'>Punjabi Fashion Products Inventory</div>
-        <div class='header-action'>Remove Product</div>
+        <div class='header-action'>Product Details Update</div>
     </div>
     <hr>
     <form action="${pageContext.request.contextPath}/Search" method="post">
@@ -82,6 +81,7 @@
 	    <div class="products-display-table">
 	    	
 	    </div>
+	    <form action="${pageContext.request.contextPath}/EditDetails" method="post">
 	    <table class="table table-striped">
 	    	<thead>
 	    		<tr>
@@ -96,10 +96,11 @@
 	    	</thead>
 	    	<tbody>
 	    	
-	    	<% while(itr.hasNext()){
+	    	<%  int i=1;
+	    		while(itr.hasNext()){
 	    		String[] str = (String[])itr.next();	
-	    		int i=1;
-	    	%><form>
+	    		
+	    	%>
 	    		<tr>
 	    			<td><%=i %></td>
 	    			<td><%=str[0] %></td>
@@ -107,12 +108,17 @@
 	    			<td><%=str[2] %></td>
 	    			<td><%=str[3] %></td>
 	    			<td><%=str[4] %></td>
-	    			<td><button class="btn btn-primary" onclick="funDelete(<%=str[0]%>)">Delete</button></td>
+	    			<input type="hidden" value="<%=str[0] %>" name="productId">
+	    			<td>
+	    				<button type="submit" class="btn btn-primary btn-static" id="btn-static" >Edit</button>
 	    			
-	    		</tr></form>
+	    			</td>
+	    			
+	    		</tr>
 	    		<%i++;} %>
 	    	</tbody>
 	    </table>
+	    </form>
 	</div>
 	<%}else if(request.getAttribute("failure") != null){%>
 		<div class='error'><%=request.getAttribute("failure")%></div>

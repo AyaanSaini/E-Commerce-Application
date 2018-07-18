@@ -31,6 +31,7 @@ public class AddProductsController extends HttpServlet {
 	ProductService productService;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		System.out.println("-->AddproductController");
 		try{
 			session = request.getSession();
 		}catch(Exception e){
@@ -59,8 +60,12 @@ public class AddProductsController extends HttpServlet {
 			product.setMrp(Double.parseDouble(request.getParameter("price")));
 			product.setDiscount(Double.parseDouble(request.getParameter("discount")));
 			product.setGenders(request.getParameter("gender"));
-			product.setSizes(request.getParameterValues("sizes"));
-			product.setColors(request.getParameter("colors"));
+			String[] a  = request.getParameterValues("size[]");
+			product.setSizes(request.getParameterValues("size[]"));
+			
+			System.out.println("Product_size = "+a[0]);
+			
+			product.setColors(request.getParameter("color"));
 			Part filePart = request.getPart("img[]");
 			System.out.println(filePart.getName());
             System.out.println(filePart.getSize());
@@ -81,28 +86,28 @@ public class AddProductsController extends HttpServlet {
 						if(res == 1){
 							System.out.println("Product Successfully Added with code"+res);
 							message = "Product Successfully Added";
-							response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/home.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
+							response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp?message=" + URLEncoder.encode(message, "UTF-8"));
 						}
 						else if(res == 1){
 							System.out.println("Product is Not Successfully Added with code"+res);
 							message = "Product Not Added Successfully, Contact Database Admin";
-							response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/home.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+							response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
 						}
 						else{
 							System.out.println("Product is Not Successfully Added with code"+res);
 							message = "Product Not Added Successfully,Contact System Admin";
-							response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/home.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+							response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
 						}						
 					}else{
 						System.out.println("Product details are not proper"+validProduct);
 						message = "Product Not Added Successfully. Please provide "+validProduct+" field value properly";
-						response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/home.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+						response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
 					}
 				}
 				else{
 					System.out.println("Product is null");
 					message = "Please provide Product details carefully";
-					response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/home.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+					response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
 				}
 			}catch(Exception e){
 				e.printStackTrace();

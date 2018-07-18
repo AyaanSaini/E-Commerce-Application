@@ -9,7 +9,10 @@ var fitG;
 var sizeG;
 var colorG;
 
-
+$(function () { $('#size1').multiselect({ }); });
+$(function () { $('#size2').multiselect({ }); });
+$(function () { $('#size3').multiselect({ }); });
+$(function () { $('#size4').multiselect({ }); });
 
  function genderFun(gender){
 	 //alert(gender);
@@ -30,14 +33,25 @@ var colorG;
 		 document.getElementById("category").options[5].hidden = false;
 	 }
 	 if(gender == 'kids'){
-		 document.getElementById("fitdiv").options[1].hidden = true;
+		 /*document.getElementById("fitdiv").options[1].hidden = true;
 		 document.getElementById("fitdiv").options[2].hidden = true;
-		 document.getElementById("fitdiv").options[3].hidden = true;
+		 document.getElementById("fitdiv").options[3].hidden = true;*/
 		 
 	 }
 	 //document.getElementById("category").disabled = false;
 	 
  }
+ 
+ function stitchedFun(){
+	 var stitched = document.getElementById("sel-stitched").value;
+	 if(stitched == 'true'){
+		 document.getElementById("fitdiv").style.display = 'none';
+	 }
+	 else{
+		 document.getElementById("fitdiv").style.display = 'block';
+	 }
+ }
+ 
  function categoryFun(){
 	 alert(genderG);
 	 var category = document.getElementById("category").value;

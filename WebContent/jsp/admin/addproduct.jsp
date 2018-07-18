@@ -1,3 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>punjabi fashion</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+ 
+ <script type="text/javascript" src="../../javascripts/addProduct.js"></script>
+
+ <link rel="stylesheet" href="../../index.css">
+ <link rel="stylesheet" href="../../css/admin/home.css">
+ <link rel="stylesheet" href="../../css/admin/addproduct.css">
+<!--  <link rel="stylesheet" href="../../css/admin/editproduct.css">
+ <link rel="stylesheet" href="../../css/admin/deleteproduct.css"> -->
+ <script type="text/javascript">
+ $(document).on('click', '.browse', function(){
+	  var file = $(this).parent().parent().parent().find('.file');
+	  file.trigger('click');
+	});
+	$(document).on('change', '.file', function(){
+	  $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+	});
+ </script>
+ 
+ 
+ 
+ 
+</head>
+<body >
+<%@ include  file='/header.jsp' %>
+
+	<div class="container">		
+				<div class="menu-items">
+						<li><a href="/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp" >Add A Product</a></li>
+						<li><a href="/Git_Punjabi_Fashion/jsp/admin/editproduct.jsp" >Update Product Details</a></li>
+						<li><a href="/Git_Punjabi_Fashion/jsp/admin/deleteproduct.jsp" >Remove Product From Market</a></li>
+				</div>
+	</div>	
+		
+		<div class="action-block">
+			<div class="action-container">
+			
+				<div class="action-display" id="addproduct" style="display: block">
 <%
 	String[] menCategory = {"Clothing","Footwear","Jewellery"};
 	String[] womenCategory = {"Clothing","Footwear","Jewellery","Gota Patti","Bangles"};
@@ -24,10 +73,7 @@
 %>
 
 
-<div class="add-product" >
-
-
-	
+<div class="add-product" >	
 	<div class='product-entry-header'>
         <div class='header-name'>Punjabi Fashion Products Inventory</div>
         <div class='header-action'>Product Entry</div>
@@ -38,12 +84,12 @@
 		      <div class="row">
 		      		<div class="col-md-4 check-gender">     
 				      	<div class="radio">
-					      <label><input type="radio" id="gender" name="gender" value="male" onclick="genderFun('men')">Men</label>
+					      <label><input type="radio" id="gender" name="gender" value="men" onclick="genderFun('men')">Men</label>
 					    </div>
 				   	</div>
 				   <div class="col-md-4">
 					    <div class="radio">
-					      <label><input type="radio" id="gender" name="gender" value="female" onclick="genderFun('women')">Women</label>
+					      <label><input type="radio" id="gender" name="gender" value="women" onclick="genderFun('women')">Women</label>
 					    </div>
 				    </div>
 				    <div class="col-md-4">
@@ -56,7 +102,7 @@
         
         <div class='form-group'>
         	<select class="form-control" name="category" id="category" onchange="categoryFun()" required>
-        		<option>Select A Category</option>
+        		<option disabled>Select A Category</option>
         		<option id='all' value="clothing">Clothing</option>
         		<option id="all" value="footwear">Footwear</option>
         		<option id="all" value="jewellary">Jewellary</option>
@@ -66,24 +112,24 @@
         </div>
         
         <div class='form-group stitched-div' id = "stitched">
-        	<select class="form-control" name="stitched" required>
-        		<option>Stitched</option>
+        	<select class="form-control" name="stitched" id="sel-stitched" onchange="stitchedFun()">
+        		<option disabled>Select Weather Product Is Stitched Or Not</option>
         		<option value="true">Yes</option>
         		<option value="false">No</option>        		
         	</select>
         </div>
         
         <div class='form-group fit-div' id = "fitdiv">
-        	<select class="form-control" name="fit" required>
-        		<option>Select A Fitting</option>
+        	<select class="form-control" name="fit" >
+        		<option disabled>Select A Fitting</option>
         		<option value="slim">Slim Fit</option>
         		<option value="skiny">Skiny Fit</option>
         		<option value="regular">Regular Fit</option>
         	</select>
         </div>
         <div class='form-group color-div' id="color">
-        	<select class="form-control"  name="color" required >
-        	<option>Select A Color</option>
+        	<select class="form-control sizes"  name="color" required >
+        	<option disabled>Select A Color</option>
         	<%for(String color:colors){ %>
         		<option value="<%=color%>"><%=color%></option>
         	<% }%>
@@ -91,42 +137,66 @@
         </div>
         <!-- Men/Women Clothing Sizes -->
         <div class='form-group sizes-div' id="clothing-sizes" >
-        	<select class="form-control" name="size" required >
-        		<option>Select sizes</option>
-        		 <%for(String size:clothingSizes){ %>
-        		<option value="<%=size%>"><%=size%></option>
-        	<% }%>  		
-        	</select>
+        	<div class="row">
+        		<div class="col-md-7">Select All The Sizes For This Product</div>
+        		<div class="col-md-5">
+        			<select class="form-control sizes" name="size[]"  multiple = "multiple" id="size1" >
+		        		<option disabled>Select sizes</option>
+		        		 <%for(String size:clothingSizes){ %>
+		        			<option value="<%=size%>"><%=size%></option>
+		        		 <% }%>  		
+		        	</select>
+        		</div>
+        	</div>
+        	
         </div>
         
         <!-- Kids Clothing Sizes -->
          <div class='form-group sizes-div' id="kids-clothing-sizes" >
-        	<select class="form-control" name="size" required >
-        		<option>Select sizes</option>
-        		 <%for(String size:kidsClothingSizes){ %>
-        		<option value="<%=size%>"><%=size%></option>
-        	<% }%>  		
-        	</select>
+         <div class="row sizes-row">
+        		<div class="col-md-7">Select All The Sizes For This Product</div>
+        		<div class="col-md-5">
+        			<select class="form-control sizes" name="size[]"  multiple = "multiple" id="size2" >
+		        		<option disabled>Select sizes</option>
+		        		 <%for(String size:kidsClothingSizes){ %>
+		        			<option value="<%=size%>"><%=size%></option>
+		        		  <% }%>  		
+		        	</select>
+        		</div>
+        	</div>
+        	
         </div>
         
         <!-- Men/Women Footwear Sizes -->
          <div class='form-group sizes-div' id="footwear-sizes" >
-        	<select class="form-control" name="size" required >
-        		<option>Select sizes</option>
-        		 <%for(String size:footwearSizes){ %>
-        		<option value="<%=size%>"><%=size%></option>
-        	<% }%>  		
-        	</select>
+         <div class="row">
+        		<div class="col-md-7">Select All The Sizes For This Product</div>
+        		<div class="col-md-5">
+        			<select class="form-control sizes" name="size[]"  multiple = "multiple" id="size3" >
+		        		<option disabled>Select sizes</option>
+		        		 <%for(String size:footwearSizes){ %>
+		        			<option value="<%=size%>"><%=size%></option>
+		        		  <% }%>  		
+		        	</select>
+        		</div>
+        	</div>
+        	
         </div>
         
         <!-- Kids Footwear Sizes -->
          <div class='form-group sizes-div' id="kids-footwear-sizes" >
-        	<select class="form-control" name="size" required >
-        		<option>Select sizes</option>
-        		 <%for(String size:kidsFootWearSizes){ %>
-        		<option value="<%=size%>"><%=size%></option>
-        	<% }%>  		
-        	</select>
+         <div class="row">
+        		<div class="col-md-7">Select All The Sizes For This Product</div>
+        		<div class="col-md-5">
+        			<select class="form-control sizes" name="size[]"  multiple = "multiple" id="size4" >
+		        		<option disabled>Select sizes</option>
+		        		 <%for(String size:kidsFootWearSizes){ %>
+		        			<option value="<%=size%>"><%=size%></option>
+		        		 <% }%>  		
+        			</select>
+        		</div>
+        	</div>
+        	
         </div>
         
         
@@ -140,10 +210,10 @@
         	<textarea class="form-control" name="description" placeholder=" Enter Product Description" row="4" column="250" required></textarea>
         </div>
         <div class='form-group'>
-        	<input class="form-control" name="price" type="text" placeholder="Enter MRP" required>
+        	<input class="form-control" name="price" type="text" placeholder="Enter MRP" required pattern="[0-9]+([\.,][0-9]+)?" step="0.01" title="This should be a number with up to 2 decimal places.">
         </div>
         <div class='form-group'>
-        	<input class="form-control" name="discount" type="text" placeholder="Enter Discount" required>
+        	<input class="form-control" name="discount" type="text" placeholder="Enter Discount" required pattern="[0-9]+([\.,][0-9]+)?" step="0.01"  title="This should be a number with up to 2 decimal places.">
         </div>
         <div class="form-group">
 		    <input type="file" name="img[]" class="file" required>
@@ -174,3 +244,15 @@
        </form>
        
 </div>
+</div>
+			
+				
+				
+			</div>
+		</div>
+		
+	
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@ import java.io.InputStream;
 
 public class Product {
 	private int id;
-	private String code;
+	private String title;
 	private String category;
 	private String fit;
 	private String name;
@@ -15,7 +15,7 @@ public class Product {
 	private int totalRating;
 	private String[] sizes;
 	private String colors;
-	private String genders;
+	private String gender;
 	private boolean stitched;
 	private InputStream photo;
 	public int getId() {
@@ -24,11 +24,11 @@ public class Product {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCode() {
-		return code;
+	public String getTitle() {
+		return title;
 	}
-	public void setCode(String code) {
-		this.code = code;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getCategory() {
 		return category;
@@ -91,11 +91,11 @@ public class Product {
 	public void setColors(String colors) {
 		this.colors = colors;
 	}
-	public String getGenders() {
-		return genders;
+	public String getGender() {
+		return gender;
 	}
-	public void setGenders(String genders) {
-		this.genders = genders;
+	public void setGenders(String gender) {
+		this.gender = gender;
 	}
 	public boolean isStitched() {
 		return stitched;

@@ -34,3 +34,32 @@
 	font-size: 18px;
 	margin-top: 1cm;
 }
+
+.error{
+	font-size:16px;
+    color: red;
+}
+.message{
+	font-size:16px;
+	color: green
+}
+
+
+.price-static{
+	display: inline-block;
+}
+.discount-static{
+	display: ;
+}
+.btn-static{
+	display: table-column;
+}
+.price-dynamic{
+	display: none;
+}
+.discount-dynamic{
+	display: none;
+}
+.btn-dynamic{
+	display: none;
+}

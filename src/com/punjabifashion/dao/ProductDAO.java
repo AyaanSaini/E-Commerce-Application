@@ -12,5 +12,6 @@ public interface ProductDAO {
 	public int deleteProduct(Product product)throws SQLException;
 	public List<Product> getProducts()throws SQLException;
 	public Product getProduct(String id)throws SQLException;
+	public List<String[]> searchProduct(String by,String value) throws SQLException;
 	
 }

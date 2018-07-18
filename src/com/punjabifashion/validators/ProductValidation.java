@@ -6,7 +6,7 @@ public class ProductValidation {
 	
 	public String isValidProduct(Product product){
 		String message = "Fine";
-		if(product.getGenders() == null)
+		if(product.getGender() == null)
 			message = "gender";
 		if(product.getCategory() == null)
 			message = "category";
@@ -16,8 +16,8 @@ public class ProductValidation {
 			message = "description";
 		if(product.getName() == null)
 			message = "name";
-		if(product.getPhoto() == null)
-			message = "image";
+		/*if(product.getPhoto() == null)
+			message = "image";*/
 		if(product.getMrp() == null)
 			message = "price";
 		if(product.getDiscount() == null)

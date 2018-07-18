@@ -62,7 +62,7 @@ public class LoginController extends HttpServlet {
 	    			  System.out.println("user is recorded in DB as Admin");
 	    			  session.setAttribute("session_user", username);
 	    			  session.setAttribute("session_user_role", userRole);
-	    			  response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/home.jsp");
+	    			  response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp");
 	    		  }
 	    		  else{
 	    			  System.out.println("user is not recorded in DB");
