@@ -17,7 +17,7 @@ $(function () { $('#size4').multiselect({ }); });
  function genderFun(gender){
 	 //alert(gender);
 	 genderG = gender;
-	 alert(gender+"Selected");
+	 //alert(gender+"Selected");
 	 
 	 document.getElementById("category").selectedIndex = 0;
 	 
@@ -53,11 +53,11 @@ $(function () { $('#size4').multiselect({ }); });
  }
  
  function categoryFun(){
-	 alert(genderG);
+	 //alert(genderG);
 	 var category = document.getElementById("category").value;
 	 
 	 if(genderG == 'kids' && category == 'footwear' ){
-		 alert("kids footwear");	 
+		 //alert("kids footwear");	 
 		 document.getElementById("kids-clothing-sizes").style.display = 'none';
 		 document.getElementById("clothing-sizes").style.display = 'none';
 		 document.getElementById("kids-footwear-sizes").style.display = 'block';
@@ -68,7 +68,7 @@ $(function () { $('#size4').multiselect({ }); });
 	 }
 	 
 	 else if(genderG == 'kids' && category == 'clothing'){
-		 alert("kids clothing");
+		 //alert("kids clothing");
 		 document.getElementById("kids-clothing-sizes").style.display = 'block';
 		 document.getElementById("clothing-sizes").style.display = 'none';
 		 document.getElementById("kids-footwear-sizes").style.display = 'none';
@@ -78,7 +78,7 @@ $(function () { $('#size4').multiselect({ }); });
 		 document.getElementById("color").style.display = 'block';
 	 }
 	 else if(category == 'footwear'){
-		 alert("adult footwear");
+		// alert("adult footwear");
 		 document.getElementById("kids-clothing-sizes").style.display = 'none';
 		 document.getElementById("clothing-sizes").style.display = 'none';
 		 document.getElementById("kids-footwear-sizes").style.display = 'none';
@@ -88,7 +88,7 @@ $(function () { $('#size4').multiselect({ }); });
 		 document.getElementById("color").style.display = 'block';
 	 }
 	 else if(category == 'gottaPatti'){
-		 alert("gota patti");
+		 //alert("gota patti");
 		 document.getElementById("kids-clothing-sizes").style.display = 'none';
 		 document.getElementById("clothing-sizes").style.display = 'none';
 		 document.getElementById("kids-footwear-sizes").style.display = 'none';
@@ -99,7 +99,7 @@ $(function () { $('#size4').multiselect({ }); });
 		 
 	 }
 	 else if(category == 'jewellary'||category == 'bangles'){
-		 alert("jewellay bangles");
+		// alert("jewellay bangles");
 		 document.getElementById("kids-clothing-sizes").style.display = 'none';
 		 document.getElementById("clothing-sizes").style.display = 'none';
 		 document.getElementById("kids-footwear-sizes").style.display = 'none';
@@ -109,7 +109,7 @@ $(function () { $('#size4').multiselect({ }); });
 		 document.getElementById("color").style.display = 'none';
 	 }
 	 else if(category == 'clothing'){
-		 alert("adult clothing");
+		// alert("adult clothing");
 		 document.getElementById("kids-clothing-sizes").style.display = 'none';
 		 document.getElementById("clothing-sizes").style.display = 'block';
 		 document.getElementById("kids-footwear-sizes").style.display = 'none';
@@ -119,7 +119,7 @@ $(function () { $('#size4').multiselect({ }); });
 		 document.getElementById("color").style.display = 'block';
 	 }
 	 else{
-		 alert("else");
+		// alert("else");
 		 document.getElementById("fitdiv").hidden = false;
 			// document.getElementById("sizes").hidden = false;
 			 document.getElementById("color").hidden = false;
@@ -131,3 +131,16 @@ $(function () { $('#size4').multiselect({ }); });
 			 document.getElementById("kids-footwear-sizes").hidden = true;
 	 }
  }
+
+ 
+ function addProductSubmit(){
+	 var photopath = document.getElementById("photoPathDisplay").value;
+	 //alert("Photo Path = "+photopath);
+	 if(photopath == null || photopath == undefined || photopath ==""){
+		 alert("Photo must be selected to add a product.");
+	 }
+	 else{
+		 document.getElementById("addProductForm").submit();
+	 }	 
+ }
+ 

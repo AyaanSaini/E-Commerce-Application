@@ -3,4 +3,40 @@
 	margin-top: 1cm;
 	
 }
+.sizes-div{
+	display: none;
+}
+.clothing-sizes-adult{
+	display: none;
+}
 
+.footwear-sizes-adult{
+	display: none;
+}
+.clothing-sizes-kids{
+	display: none;
+}
+.footwear-sizes-kids{
+	display: none;
+}
+
+.products-view-product-title{
+	width:90%;
+	text-align:center;
+	height:20px;
+	overflow:hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	font-size:14px;
+	font-weight: bold;
+	color: blue;
+}
+.filter-product-price{
+	font-size:20px;
+	color: black;
+}
+.main-page-message{
+	color: red;
+	margin-left: auto;
+	margin-right: auto;
+}

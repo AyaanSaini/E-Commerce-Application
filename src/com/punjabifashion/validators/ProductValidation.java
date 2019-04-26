@@ -16,13 +16,18 @@ public class ProductValidation {
 			message = "description";
 		if(product.getName() == null)
 			message = "name";
-		/*if(product.getPhoto() == null)
-			message = "image";*/
+		if(product.getPhoto() == null)
+			message = "image";
 		if(product.getMrp() == null)
 			message = "price";
 		if(product.getDiscount() == null)
 			message = "discount";
-		
+		if(product.getCategory().equalsIgnoreCase("Clothing") && 
+				(product.getSizes() == null  || product.getSizes().length < 1))
+			message = "Size";
+		if(product.getCategory().equalsIgnoreCase("Footwear") && 
+				(product.getSizes() == null  || product.getSizes().length < 1))
+			message = "Size";
 		return message;
 		
 	}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,7 @@ public class SearchController extends HttpServlet {
 		}else if(session.getAttribute("session_user_role").equals("admin")){
 			String productId = request.getParameter("productId");
 			String productTitle = request.getParameter("productTitle");
+			String pageName = request.getParameter("pageName");
 			try{
 				if(!productId.isEmpty()){
 					System.out.println("ProductId = "+productId);
@@ -58,14 +60,17 @@ public class SearchController extends HttpServlet {
 					System.out.println(list);
 				}
 				message = "Product List";
-				session.setAttribute("successEdit", list);
-				//System.out.println("success == "+se.getAttribute("success"));
+				request.setAttribute("success", list);
+				System.out.println("success == "+request.getAttribute("success"));
+				RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/jsp/admin/"+pageName+".jsp");
+				rd.forward(request, response);
 				response.sendRedirect("/Git_Punjabi_Fashion/jsp/admin/editproduct.jsp");
 			}catch(Exception e){
 				message = e.getMessage();
 				request.setAttribute("failure", message);				
 				e.printStackTrace();
-				response.sendRedirect("/Git_Punjabi_Fashion/error.jsp?error=" + URLEncoder.encode(message, "UTF-8"));
+				RequestDispatcher rd = request.getServletContext().getRequestDispatcher("/jsp/admin/"+pageName+".jsp");
+				rd.forward(request, response);
 			}
 		}
 	}

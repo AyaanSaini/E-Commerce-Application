@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ page errorPage="../../error.jsp?error=Login as admin to access this page" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,7 +35,13 @@
 </head>
 <body >
 <%@ include  file='/header.jsp' %>
-
+<%
+	if(session == null || session.getAttribute("session_user") == null){
+		throw new Exception();
+	}else if(session.getAttribute("session_user_role") == null || !session.getAttribute("session_user_role").toString().equalsIgnoreCase("admin")){
+		throw new Exception();
+	}
+%>
 	<div class="container">		
 				<div class="menu-items">
 						<li><a href="/Git_Punjabi_Fashion/jsp/admin/addproduct.jsp" >Add A Product</a></li>
@@ -79,7 +86,7 @@
         <div class='header-action'>Product Entry</div>
     </div>
     <hr>
-      <form action="${pageContext.request.contextPath}/AddProduct" method="post" enctype="multipart/form-data">
+      <form action="${pageContext.request.contextPath}/AddProduct" method="post" enctype="multipart/form-data" id="addProductForm">
       	<div class="form-group">   
 		      <div class="row">
 		      		<div class="col-md-4 check-gender">     
@@ -153,7 +160,7 @@
         
         <!-- Kids Clothing Sizes -->
          <div class='form-group sizes-div' id="kids-clothing-sizes" >
-         <div class="row sizes-row">
+         <div class="row">
         		<div class="col-md-7">Select All The Sizes For This Product</div>
         		<div class="col-md-5">
         			<select class="form-control sizes" name="size[]"  multiple = "multiple" id="size2" >
@@ -219,7 +226,7 @@
 		    <input type="file" name="img[]" class="file" required>
 		    <div class="input-group col-xs-12">
 		      <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
-		      <input type="text" class="form-control input-lg" disabled placeholder="Upload Image">
+		      <input id="photoPathDisplay" type="text" class="form-control input-lg" disabled placeholder="Upload Image">
 		      <span class="input-group-btn">
 		        <button class="browse btn btn-primary input-lg" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
 		      </span>
@@ -232,7 +239,7 @@
         	<div class="row">
         		<div class="col-md-3"></div>
         		<div class="col-md-3">
-        			<button type="submit" name="add" class="btn btn-primary">Add Product</button>
+        			<button onclick="addProductSubmit()" name="add" class="btn btn-primary">Add Product</button>
         		</div>
         		<div class="col-md-3">
         			<button type="reset" name="reset" class="btn btn-warning">Reset</button>

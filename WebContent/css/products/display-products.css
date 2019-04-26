@@ -22,16 +22,17 @@
 .product-title{
     font-size: 15px;
     font-weight: bold;
+    text-overflow: ellipsis;
 }
 .product-price{
-    font-size: 15px;
+    font-size: 18px;
 }
 .product-mrp{
-    font-size: 15px;
+	color: red;
+    font-size: 18px;
 }
-.product-discount{
-    color: red;
-    font-size: 10px;
+.product-discountedPrice{    
+    font-size: 18px;
 }
 .product-rating{
     font-size: 15px;
@@ -50,4 +51,7 @@
 .products-display{
 	margin-top: 1cm;
 	padding: .3cm;
+}
+.product-detail-description-title{
+	font-size: 16px;
 }

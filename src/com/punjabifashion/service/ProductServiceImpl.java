@@ -12,7 +12,6 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public int addProduct(Product product) throws SQLException {
 		System.out.println("-->productService:addProduct");
-		// TODO Auto-generated method stub
 		int res = 0;
 		ProductDAO  productDao;
 		try {
@@ -24,35 +23,96 @@ public class ProductServiceImpl implements ProductService{
 				res = 100;
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("<--productService:addProduct");
 		return res;
 	}
 
+	
+
 	@Override
-	public int updateProduct(Product product) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteProduct(int productId) {
+		int res=0;
+		ProductDAO productDAO = new ProductDAOImpl();
+		try{
+			res = productDAO.deleteProduct(productId);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public List getProducts() {
+		System.out.println("-->ProductService:getProducts()");
+		List res = null;
+		ProductDAO productDAO = new ProductDAOImpl();
+		try{
+			res = productDAO.getProducts();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		System.out.println("<--ProductService:getProducts()");
+		return res;
 	}
 
 	@Override
-	public int deleteProduct(Product product) {
-		// TODO Auto-generated method stub
-		return 0;
+	public String[] getProduct(String id) {
+		String[] res = null;
+		ProductDAO productDAO = new ProductDAOImpl();
+		try{
+			res = productDAO.getProduct(id);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
 	}
 
-	@Override
-	public List<Product> getProducts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 	@Override
-	public Product getProduct(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public int updateProduct(int productId, double productDiscount, double productMrp) throws SQLException {
+		int res=0;
+		ProductDAO productDAO = new ProductDAOImpl();
+		try{
+			res = productDAO.updateProduct(productId, productMrp,productDiscount);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return res;
 	}
+
+
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public List getFilteredProducts(String titleFilter, String genderFilter, String categoryFilter, String[] sizes)
+			throws SQLException {
+		List<Product> list =null;
+		try {
+			list = new ProductDAOImpl().getFilteredProduct(titleFilter,genderFilter,categoryFilter,sizes);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	public String getProductSizes(int productId)throws SQLException {
+		String sizes = null;
+		try {
+			sizes = new ProductDAOImpl().getProductSizes(productId);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return sizes;
+		
+	}
+
+
+
+	
 
 }

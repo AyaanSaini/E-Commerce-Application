@@ -3,11 +3,16 @@
 	padding: .3cm;
 	border-right: 1px solid lightgrey;
 }
+
 .filter-check{
     margin-right: 5px;
 }
 .product-filter-type{
     height: 4cm;    
+}
+ .product-filter-type > .filter-header{
+	font-size: 18px;
+	color: grey;
 }
 .product-filter-type > ul {
     list-style-type: none;

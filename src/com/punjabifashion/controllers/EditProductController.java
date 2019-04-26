@@ -19,7 +19,7 @@ import com.punjabifashion.service.ProductService;
 import com.punjabifashion.validators.ProductValidation;
 
 @WebServlet("/EditDetails")
-public class EditDetailsController extends HttpServlet{
+public class EditProductController extends HttpServlet{
 
 	/**
 	 * 
@@ -44,6 +44,7 @@ public class EditDetailsController extends HttpServlet{
 			System.out.println("Admin user");
 			
 			String id= request.getParameter("productId");
+			System.out.println("Id = "+id);
 			if(id != null ){
 				System.out.println("Product id = "+id);
 				productDAO = new ProductDAOImpl();

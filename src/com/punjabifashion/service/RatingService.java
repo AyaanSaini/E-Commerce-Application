@@ -1,11 +1,9 @@
 package com.punjabifashion.service;
 
-import com.punjabifashion.beans.Rating;
+import java.sql.SQLException;
 
 public interface RatingService {
 	
-	public int addRating(Rating rating);
-	public int getProductAvgRating(String productId);
-	public int getProductUserRating(String userId, String productId);
-
+	public int addRating(int productId,double productrating,String userName) throws SQLException;
+	public double getProductAvgRating(String productId) throws SQLException;
 }

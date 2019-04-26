@@ -4,20 +4,20 @@
                 <div class="col-md-4">
                     <h5> HELP </h5>
                 <ul>
-                    <li><a href="">Payments</a><hr></li>
-                    <li><a href="">Saved Cards</a><hr></li>
-                    <li><a href="">Shipping</a><hr ></li>
-                    <li><a href="">FAQ</a></li>               
+                    <li><a href="/Git_Punjabi_Fashion/fake/payments.jsp">Payments</a><hr></li>
+                    <li><a href="/Git_Punjabi_Fashion/fake/savedcards.jsp">Saved Cards</a><hr></li>
+                    <li><a href="/Git_Punjabi_Fashion/fake/shipping.jsp">Shipping</a><hr ></li>
+                    <li><a href="/Git_Punjabi_Fashion/fake/FAQ.jsp">FAQ</a></li>               
                 </ul>
                 </div>
     
                  <div class="col-md-4">
-                    <h5> COMPANY NAME </h5>
+                    <h5> Punjabi Fashion </h5>
                 <ul>
-                    <li><a href="">Contact Us</a><hr></li>
-                    <li><a href="">About Us</a><hr></li>
-                    <li><a href="">Careers</a><hr></li>
-                    <li><a href="">Sell on our website</a></li>               
+                    <li><a href="/Git_Punjabi_Fashion/fake/contactus.jsp">Contact Us</a><hr></li>
+                    <li><a href="/Git_Punjabi_Fashion/fake/about.jsp">About Us</a><hr></li>
+                    <li><a href="/Git_Punjabi_Fashion/fake/career.jsp">Careers</a><hr></li>
+                    <li><a href="/Git_Punjabi_Fashion/fake/sellwithus.jsp">Sell on our website</a></li>               
                 </ul>
             </div>
     
@@ -40,9 +40,9 @@
     <div style="min-height: 50px;" id="footer-main">
     
     <ul>
-        <li><a href=""><b>About Us</b></a></li>        
-        <li><a href=""><b>Terms & Conditions</b></a></li>        
-        <li><a href=""><b>Customer Service</b></a></li>
+        <li><a href="/Git_Punjabi_Fashion/fake/about.jsp"><b>About Us</b></a></li>        
+        <li><a href="/Git_Punjabi_Fashion/fake/tnc.jsp"><b>Terms & Conditions</b></a></li>        
+        <li><a href="/Git_Punjabi_Fashion/fake/cns.jsp"><b>Customer Service</b></a></li>
     </ul>
     
     <div id="social-menu">

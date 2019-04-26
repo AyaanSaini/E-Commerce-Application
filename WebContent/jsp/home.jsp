@@ -107,10 +107,8 @@
             <div class='col-md-8'>
               <div class='header'>Punjabi Women Dressing</div>
               <div class='description'>
-                <p>Tamba, which is also called tehmat is the 
-                  Punjabi version of the lungi which has folds 
-                  at the front and is the traditional dress for 
-                  Punjabi men. The tamba is worn by Bhangra dancers.
+                <p>The Punjabi suit is the traditional dress of women.It is made up of a kurta or 
+                  kameez and a straight cut salwar.
                   <br/><br/>
                   laacha differs from the tehmat in that it has a border 
                   and is variegated so that it has more than one colour.
@@ -138,23 +136,14 @@
             <div class='col-md-8'>
               <div class='header'>Punjabi Kids Dressing</div>
               <div class='description'>
-                <p>The Punjabi suit is the traditional dress of women.It is made up of a kurta or 
-                  kameez and a straight cut salwar.
-                  <br/><br/>
-                  laacha differs from the tehmat in that it has a border 
-                  and is variegated so that it has more than one colour.
-                  The laacha is worn in a like manner to the tehmat except 
-                  it has more folds. 
-                  <br/><br/>
-                  The Punjabi kurta is made of two rectangular pieces with 
-                  side slits, and a front opening below the neck. 
-                  In the past, it was traditional for men to wear a gold 
-                  or silver chain (zanjiri) woven around the buttons.
+                <p>The use of the churidar is traditionally associated with the northern regions of the sub-continent. Although there is no consensus as to its origins, the churidar pajamma was adopted by the former princely families.
+				<br/>For people of the Punjab region, the churidar pajamma which forms part of the traditional attire of Boy and Girl both in Punjab is a combination of the tight suthan of the Punjab region, the churidar suthan of the Punjab's hill area, and the traditional Dogri suthan which ends in loose bangles (and is more of a loose pajamma as the suthan has to have a tight band at the ankles).
+				<br/> Accordingly, the churidar pajamma is believed to be derived from the suthan. The Churidar is popular all over the sub-continent and was developed in the Punjab region, and is associated with the Punjab.
                 </p>
               </div>
             </div>
           <div class='col-md-4'>
-            <img class='desc-image' src='images/home/store-13.jpg' alt=''>
+            <img class='desc-image' src='images/home/store-14.jpg' alt=''>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
  <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page errorPage="../../error.jsp?error=Somthing went wrong, Please contact System Administrator" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,7 +24,7 @@
         <div class='header-action'>Login</div>
       </div>
       <div class='google-button'>
-        <button type="button" class="btn btn-gplus" ><i class="fa fa-google-plus pr-1"></i>&nbsp; Google +</button>
+        <button class="btn btn-gplus" ><i class="fa fa-google-plus pr-1"></i>&nbsp; Google +</button>
       </div>
       <hr>
       
@@ -35,8 +36,8 @@
         <div class='form-group'>
             <input type="password" class="form-control" id="password" placeholder="Enter password" name="pwd" required>
         </div>
-        <div class='message'>${param.message}</div>
-    	<div class='error'>${param.error}</div>
+        <div class='message' id="msg">${param.message}</div>
+    	<div class='error' id="err">${param.error}</div>
         <div class="row">
         	<div class="col-md-6">
         		<div class='form-display'>

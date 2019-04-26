@@ -13,4 +13,6 @@ public interface UserService {
 	int updateUser(User user);
 
 	int deleteUser(String userId);
+
+	public String[] forgetPassword(String username, String q1, String ans1, String q2, String ans2);
 }

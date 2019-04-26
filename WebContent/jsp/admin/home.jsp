@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page errorPage="../../error.jsp?error=Login as admin to access this page" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -58,7 +59,13 @@
 </head>
 <body >
 <%@ include  file='/header.jsp' %>
-
+<%
+	if(session == null || session.getAttribute("session_user") == null){
+		throw new Exception();
+	}else if(session.getAttribute("session_user_role") == null || !session.getAttribute("session_user_role").toString().equalsIgnoreCase("admin")){
+		throw new Exception();
+	}
+%>
 	<div class="container">		
 				<div class="menu-items">
 						<li><a href="javascript:void(0)" onclick = "javascript:addProduct()">Add A Product</a></li>
@@ -71,7 +78,12 @@
 			<div class="action-container">
 			
 				<div class="action-display" id="addproduct" style="display: block">
-					
+					<div class="add-product" >	
+					<div class='product-entry-header'>
+				        <div class='header-name'>Punjabi Fashion Products Inventory</div>
+				        <div class='header-action'>Product Entry</div>
+				    </div>
+				    <hr>
 				</div>
 			
 				
